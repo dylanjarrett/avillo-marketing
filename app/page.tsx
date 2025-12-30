@@ -3,6 +3,40 @@
 import Image from "next/image";
 
 export default function MarketingHomePage() {
+  const betaSubject = "Avillo Beta Request";
+  const betaBody = [
+    "Hi Avillo team,",
+    "",
+    "I’m interested in joining the private beta.",
+    "",
+    "Market (city / state):",
+    "How I operate today (just me / team):",
+    "One thing that feels harder than it should:",
+    "",
+    "Best,",
+    "",
+  ].join("\n");
+
+  const betaMailto = `mailto:sales@avillo.io?subject=${encodeURIComponent(
+    betaSubject
+  )}&body=${encodeURIComponent(betaBody)}`;
+
+  const feedbackSubject = "Avillo Beta Feedback";
+  const feedbackBody = [
+    "Hi Avillo team,",
+    "",
+    "Here’s feedback that would make Avillo feel 10x better:",
+    "",
+    "-",
+    "",
+    "Best,",
+    "",
+  ].join("\n");
+
+  const feedbackMailto = `mailto:support@avillo.io?subject=${encodeURIComponent(
+    feedbackSubject
+  )}&body=${encodeURIComponent(feedbackBody)}`;
+
   return (
     <div className="min-h-screen">
       {/* Subtle background glow (simple + premium) */}
@@ -27,7 +61,7 @@ export default function MarketingHomePage() {
 
           <div className="flex items-center gap-2">
             <a
-              href="mailto:sales@avillo.io?subject=Avillo%20Beta%20Request"
+              href={betaMailto}
               className="inline-flex items-center justify-center rounded-full border border-[var(--avillo-gold)] bg-[linear-gradient(135deg,var(--avillo-gold),#facc15)] px-4 py-2 text-xs font-semibold text-[#14110a] shadow-[0_0_22px_rgba(244,210,106,0.35)] transition hover:brightness-[1.03]"
             >
               Request beta
@@ -53,16 +87,21 @@ export default function MarketingHomePage() {
             less time bouncing between tools and more time moving deals forward.
           </p>
 
+          {/* ✅ Who it’s for (added) */}
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-[var(--avillo-cream-muted)]">
+            Designed for solo agents and small teams who want leverage without CRM bloat.
+          </p>
+
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="mailto:sales@avillo.io?subject=Avillo%20Beta%20Request"
+              href={betaMailto}
               className="inline-flex w-full items-center justify-center rounded-full border border-[var(--avillo-gold)] bg-[linear-gradient(135deg,var(--avillo-gold),#facc15)] px-7 py-3 text-sm font-semibold text-[#14110a] shadow-[0_0_30px_rgba(244,210,106,0.35)] transition hover:brightness-[1.03] sm:w-auto"
             >
               Request beta access
             </a>
 
             <a
-              href="mailto:support@avillo.io?subject=Avillo%20Beta%20Feedback"
+              href={feedbackMailto}
               className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-7 py-3 text-sm font-semibold text-[var(--avillo-cream)] transition hover:border-[var(--avillo-gold)] hover:bg-[rgba(244,210,106,0.08)] sm:w-auto"
             >
               I want to give feedback
@@ -71,6 +110,11 @@ export default function MarketingHomePage() {
 
           <p className="mt-3 text-xs text-[var(--avillo-cream-muted)]">
             Small cohorts. Fast iteration. Built with real agents.
+          </p>
+
+          {/* ✅ Credibility anchor (added) */}
+          <p className="mt-2 text-[11px] text-[var(--avillo-cream-muted)]">
+            Built and tested alongside active agents in California and Arizona.
           </p>
         </div>
 
@@ -82,8 +126,8 @@ export default function MarketingHomePage() {
               body: "A clean home for contacts, listings, and notes — without the CRM bloat.",
             },
             {
-              title: "AI where it matters",
-              body: "Use AI to draft follow-ups and listing content faster (you stay in control).",
+              title: "AI that saves time",
+              body: "Draft follow-ups and listing content faster (you stay in control).",
             },
             {
               title: "Built to refine",
@@ -125,10 +169,14 @@ export default function MarketingHomePage() {
                 <p className="mt-1 text-sm text-[var(--avillo-cream-soft)]/90">
                   Email us and we’ll set you up with the next cohort.
                 </p>
+                {/* ✅ Structured expectation (supports prefilled mailto) */}
+                <p className="mt-2 text-xs text-[var(--avillo-cream-muted)]">
+                  Tip: include your market, team size, and one thing you want Avillo to improve.
+                </p>
               </div>
 
               <a
-                href="mailto:sales@avillo.io?subject=Avillo%20Beta%20Request"
+                href={betaMailto}
                 className="inline-flex items-center justify-center rounded-full border border-[var(--avillo-gold)] bg-[linear-gradient(135deg,var(--avillo-gold),#facc15)] px-6 py-3 text-sm font-semibold text-[#14110a] shadow-[0_0_26px_rgba(244,210,106,0.30)] transition hover:brightness-[1.03]"
               >
                 Request beta
